@@ -17,8 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "rm": "del docs\\*",
-    "mv": "move build\\* docs",
+    "rm": "mkdir docs && rd /s /q docs",
+    "mv": "move build docs",
     "git": "git add . && git commit -m \"Auto commit\" && git push origin main",
     "deploy": "npm run rm && npm run build && npm run mv && npm run git"
   },
