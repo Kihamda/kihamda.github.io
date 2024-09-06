@@ -3,7 +3,7 @@ import { Article, BlogList } from "./article";
 
 const Blog = () => {
   return (
-    <>
+    <div style={{ paddingTop: "4.5rem" }}>
       <div className="container mt-3">
         <div className="row">
           <div className="col-md-8 col-12">
@@ -36,7 +36,7 @@ const Blog = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
