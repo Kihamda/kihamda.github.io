@@ -24,8 +24,9 @@
     "eject": "react-scripts eject",
     "rm": "if exist docs rd /s /q docs",
     "mv": "move build docs",
+    "cp404": "copy docs\\index.html docs\\404.html",
     "git": "git add . && git commit -m \"Auto commit\" && git push origin main",
-    "deploy": "npm run rm && npm run build && npm run mv && npm run git"
+    "deploy": "npm run rm && npm run build && npm run mv && npm run cp404 && npm run git"
   },
   "eslintConfig": {
     "extends": [
