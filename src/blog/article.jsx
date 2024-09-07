@@ -10,7 +10,6 @@ const Article = memo(() => {
 
   useEffect(() => {
     (async () => {
-      console.log("useEffect in Article");
       // fetch data from API or local storage by id
       const [content, extra] = await getArticle(id);
       setContents(content);
@@ -18,7 +17,6 @@ const Article = memo(() => {
     })();
   }, [locate]);
 
-  console.log(id);
   return (
     <>
       <div className="card-body">
@@ -28,7 +26,7 @@ const Article = memo(() => {
         <span className="me-auto">作成日時：{extras.created_at}</span>
         <span>共有：</span>
         <a
-          href={`http://twitter.com/share?url=kihamda.github.io${locate.pathname}&via=code_kihamda`}
+          href={`http://twitter.com/share?url=kihamda.github.io${locate.pathname}&text=${extras.title} - Kihamda&via=code_kihamda`}
           target="_blank"
           rel="noopener noreferrer"
         >

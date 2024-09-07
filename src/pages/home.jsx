@@ -17,6 +17,7 @@ const Home = () => {
         <div className="d-flex text-center flex-column justify-content-center">
           <h3>KIHAMDA</h3>
           <p>Fullstack Developer/High School Student</p>
+          <p>This site is under construction</p>
           <div className="d-flex justify-content-center">
             <button
               className="btn btn-secondary me-1"
