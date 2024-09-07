@@ -6,6 +6,7 @@ const Article = () => {
   const locate = useLocation();
   const id = locate.pathname.slice(6);
   const [contents, setContents] = useState();
+  const [extras, setExtras] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -13,14 +14,22 @@ const Article = () => {
       // fetch data from API or local storage by id
       const [content, extra] = await getArticle(id);
       setContents(content);
+      setExtras(extra);
     })();
   }, [locate]);
 
   console.log(id);
-  return <Markdown>{contents}</Markdown>;
-};
-const BlogList = () => {
-  return <p>BLOG LIST</p>;
+  return (
+    <>
+      <div className="card-body">
+        <Markdown>{contents}</Markdown>
+      </div>
+      <div className="card-footer d-flex">
+        <span className="me-auto">作成日時：{extras.created_at}</span>
+        <span>共有：</span>
+      </div>
+    </>
+  );
 };
 
 const getArticle = async (id) => {
@@ -40,4 +49,4 @@ const getArticle = async (id) => {
   return [txt, ext];
 };
 
-export { Article, BlogList, getArticle };
+export { Article, getArticle };

@@ -11,12 +11,23 @@ const Home = () => {
             "linear-gradient(180deg, transparent, #56A3A688, transparent)",
         }}
       >
-        <div className="d-flex text-center flex-column">
+        <div className="d-flex text-center flex-column justify-content-center">
           <h3>KIHAMDA</h3>
-          <p>Fullstack Developer</p>
-          <button className="btn btn-secondary" onClick={() => nav("/about")}>
-            ABOUT
-          </button>
+          <p>Fullstack Developer/High School Student</p>
+          <div className="d-flex justify-content-center">
+            <button
+              className="btn btn-secondary me-1"
+              onClick={() => nav("/about")}
+            >
+              ABOUT
+            </button>
+            <button
+              className="btn btn-secondary ms-1"
+              onClick={() => nav("/blog")}
+            >
+              BLOG
+            </button>
+          </div>
         </div>
       </div>
     </>
