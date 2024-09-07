@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Markdown from "react-markdown";
 
-const Article = () => {
+const Article = memo(() => {
   const locate = useLocation();
   const id = locate.pathname.slice(6);
   const [contents, setContents] = useState();
@@ -27,10 +27,17 @@ const Article = () => {
       <div className="card-footer d-flex">
         <span className="me-auto">作成日時：{extras.created_at}</span>
         <span>共有：</span>
+        <a
+          href={`http://twitter.com/share?url=kihamda.github.io${locate.pathname}&via=code_kihamda`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Twitter(旧X)
+        </a>
       </div>
     </>
   );
-};
+});
 
 const getArticle = async (id) => {
   const article = fetch(

@@ -4,6 +4,9 @@ const Home = () => {
   const nav = useNavigate();
   return (
     <>
+      <style type="text/css">
+        {"#header{background-color:transparent !important;}"}
+      </style>
       <div
         className="d-grid align-content-center justify-content-center vh-100"
         style={{

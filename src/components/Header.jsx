@@ -55,7 +55,10 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <div
+      id="header"
+      className="navbar navbar-expand-lg bg-body-tertiary fixed-top"
+    >
       <div className="container">
         <NavLink className={"navbar-brand bold d-flex"} to="/">
           <svg
@@ -181,6 +184,15 @@ const Header = () => {
                   activeClassName="active"
                 >
                   ABOUT
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link"
+                  to="/myapp"
+                  activeClassName="active"
+                >
+                  MY APP
                 </NavLink>
               </li>
               <li className="nav-item">
