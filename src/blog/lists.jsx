@@ -7,7 +7,7 @@ const NewArticles = () => {
       <div className="card-body">
         <ul>
           <li>
-            <NavLink to={"/blog/1"}>記事１</NavLink>
+            <NavLink to={"/blog/ba28e36a39373946670000d6"}>記事１</NavLink>
           </li>
           <li>
             <NavLink to={"/blog/2"}>記事２</NavLink>

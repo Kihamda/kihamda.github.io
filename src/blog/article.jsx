@@ -1,32 +1,39 @@
+import parse from "html-react-parser";
 import { memo, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Markdown from "react-markdown";
 
 const Article = memo(() => {
   const locate = useLocation();
   const id = locate.pathname.slice(6);
   const [contents, setContents] = useState();
-  const [extras, setExtras] = useState([]);
 
   useEffect(() => {
     (async () => {
       // fetch data from API or local storage by id
-      const [content, extra] = await getArticle(id);
+      const content = await getArticle(id);
       setContents(content);
-      setExtras(extra);
     })();
   }, [locate]);
 
   return (
     <>
       <div className="card-body">
-        <Markdown>{contents}</Markdown>
+        {contents ? (
+          <>
+            <h1>{contents.Title}</h1>
+            {parse(contents.Text)}
+          </>
+        ) : (
+          "Loading"
+        )}
       </div>
       <div className="card-footer d-flex">
-        <span className="me-auto">作成日時：{extras.created_at}</span>
+        <span className="me-auto">
+          作成日時：{contents ? Date(contents._modified) : ""}
+        </span>
         <span>共有：</span>
         <a
-          href={`http://twitter.com/share?url=kihamda.github.io${locate.pathname}&text=${extras.title} - Kihamda&via=code_kihamda`}
+          href={`http://twitter.com/share?url=kihamda.github.io${locate.pathname}&text= - Kihamda&via=code_kihamda`}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -38,20 +45,14 @@ const Article = memo(() => {
 });
 
 const getArticle = async (id) => {
-  const article = fetch(
-    `https://kihamda.github.io/blogcms/articles/${id}/text.md`
-  ).then((data) => {
-    return data.text();
-  });
-  const extra = fetch(
-    `https://kihamda.github.io/blogcms/articles/${id}/extra.json`
-  ).then((data) => {
-    return data.json();
-  });
-
+  const url = process.env.REACT_APP_CMSURL;
+  const article = fetch(url + `/content/item/Articles/${id}`)
+    .then((data) => data.json())
+    .catch(() => {
+      return { Text: "<h1>Not Found</h1>" };
+    });
   const txt = await article;
-  const ext = await extra;
-  return [txt, ext];
+  return txt;
 };
 
-export { Article, getArticle };
+export { Article };
