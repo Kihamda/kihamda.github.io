@@ -13,7 +13,7 @@ const Article = memo(() => {
       const content = await getArticle(id);
       setContents(content);
     })();
-  }, [locate]);
+  }, [id]);
 
   return (
     <>
@@ -29,7 +29,8 @@ const Article = memo(() => {
       </div>
       <div className="card-footer d-flex">
         <span className="me-auto">
-          作成日時：{contents ? Date(contents._modified) : ""}
+          作成日時：
+          {contents ? new Date(contents._created * 1000).toDateString() : ""}
         </span>
         <span>共有：</span>
         <a
