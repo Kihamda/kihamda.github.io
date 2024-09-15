@@ -181,7 +181,7 @@ const Header = () => {
                 <NavLink
                   className="nav-link"
                   to="/about"
-                  activeClassName="active"
+                  activeclassname="active"
                 >
                   ABOUT
                 </NavLink>
@@ -190,7 +190,7 @@ const Header = () => {
                 <NavLink
                   className="nav-link"
                   to="/myapp"
-                  activeClassName="active"
+                  activeclassname="active"
                 >
                   MY APP
                 </NavLink>
@@ -199,7 +199,7 @@ const Header = () => {
                 <NavLink
                   className="nav-link"
                   to="/blog"
-                  activeClassName="active"
+                  activeclassname="active"
                 >
                   BLOG
                 </NavLink>
@@ -208,7 +208,7 @@ const Header = () => {
                 <NavLink
                   className="nav-link"
                   to="/contact"
-                  activeClassName="active"
+                  activeclassname="active"
                 >
                   CONTACT
                 </NavLink>
