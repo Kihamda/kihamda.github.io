@@ -176,8 +176,8 @@ const Header = () => {
             ></button>
           </div>
           <div className="offcanvas-body">
-            <ul className="navbar-nav ">
-              <li className="nav-item">
+            <ul className="navbar-nav">
+              <li className="nav-item" data-bs-dismiss="offcanvas">
                 <NavLink
                   className="nav-link"
                   to="/about"
@@ -186,7 +186,7 @@ const Header = () => {
                   ABOUT
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" data-bs-dismiss="offcanvas">
                 <NavLink
                   className="nav-link"
                   to="/myapp"
@@ -195,7 +195,7 @@ const Header = () => {
                   MY APP
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" data-bs-dismiss="offcanvas">
                 <NavLink
                   className="nav-link"
                   to="/blog"
@@ -204,7 +204,7 @@ const Header = () => {
                   BLOG
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" data-bs-dismiss="offcanvas">
                 <NavLink
                   className="nav-link"
                   to="/contact"
@@ -214,8 +214,8 @@ const Header = () => {
                 </NavLink>
               </li>
             </ul>
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
+            <ul className="navbar-nav ms-lg-auto d-none d-lg-flex flex-row justify-content-around">
+              <li className="nav-item" data-bs-dismiss="offcanvas">
                 <a
                   href="https://x.com/code_kihamda"
                   target="_blank"
@@ -249,7 +249,7 @@ const Header = () => {
                   </span>
                 </button>
                 <ul
-                  className="dropdown-menu dropdown-menu-end"
+                  className="dropdown-menu dropdown-menu-end position-absolute"
                   aria-labelledby="bd-theme-text"
                 >
                   <li>
@@ -293,6 +293,91 @@ const Header = () => {
                 </ul>
               </li>
             </ul>
+          </div>
+          <div className="offcanvas-footer d-lg-none text-center p-0">
+            <div className="row">
+              <div className="col-2">
+                <a
+                  href="https://x.com/code_kihamda"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="nav-link"
+                >
+                  <FontAwesomeIcon icon={faXTwitter} />
+                </a>
+              </div>
+              <div className="col-8 d-flex justify-content-center">
+                <p className="nav-item dropdown d-flex">
+                  <button
+                    className="btn btn-link nav-link dropdown-toggle d-flex align-items-center align-self-center"
+                    id="bd-theme"
+                    type="button"
+                    aria-expanded="false"
+                    data-bs-toggle="dropdown"
+                    data-bs-display="static"
+                    aria-label="テーマを切り替える"
+                  >
+                    <FontAwesomeIcon
+                      icon={
+                        theme == "light"
+                          ? faSun
+                          : theme == "dark"
+                          ? faMoon
+                          : faCircleHalfStroke
+                      }
+                    />
+                    <span className="d-lg-none ms-2" id="bd-theme-text">
+                      テーマを切り替える
+                    </span>
+                  </button>
+                  <ul
+                    className="dropdown-menu dropdown-menu-end position-absolute"
+                    aria-labelledby="bd-theme-text"
+                    style={{ transform: "translateY(-100%)" }}
+                  >
+                    <li>
+                      <button
+                        type="button"
+                        className={`dropdown-item d-flex align-items-center ${
+                          theme == "light" ? "active" : ""
+                        }`}
+                        onClick={() => setTheme("light")}
+                      >
+                        <FontAwesomeIcon icon={faSun} />
+                        <font>ライト</font>
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        className={`dropdown-item d-flex align-items-center ${
+                          theme == "dark" ? "active" : ""
+                        }`}
+                        data-bs-theme-value="dark"
+                        onClick={() => setTheme("dark")}
+                      >
+                        <FontAwesomeIcon icon={faMoon} />
+                        <font>暗い</font>
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        className={`dropdown-item d-flex align-items-center ${
+                          theme == "auto" ? "active" : ""
+                        }`}
+                        data-bs-theme-value="auto"
+                        onClick={() => setTheme("auto")}
+                      >
+                        <FontAwesomeIcon icon={faCircleHalfStroke} />
+                        <font>オート</font>
+                      </button>
+                    </li>
+                  </ul>
+                </p>
+              </div>
+              <div className="col-2"></div>
+            </div>
           </div>
         </div>
       </div>
