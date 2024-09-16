@@ -20,13 +20,17 @@ const Myapp = memo(() => {
 
 const Card = memo(({ data }) => {
   return (
-    <div className="card col-12 col-md-6 col-lg-4">
-      <div className="card-body">
-        <h5 className="card-title">{data.title}</h5>
-        <p className="card-text">{data.description}</p>
-        <a href={data.url} className="btn btn-primary">
-          詳細
-        </a>
+    <div className="col-12 col-md-6 col-lg-4">
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title">{data.title}</h5>
+          <p className="card-text">{data.description}</p>
+          <div className="d-grid justify-content-center">
+            <a href={data.url} className="btn btn-primary">
+              詳細
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

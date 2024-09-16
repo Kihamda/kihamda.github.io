@@ -6,17 +6,15 @@ import BlogHome from "./bloghome";
 const Blog = () => {
   return (
     <div style={{ paddingTop: "4.5rem" }}>
-      <div className="container mt-3">
+      <div className="container mt-3 mb-3">
         <div className="row">
-          <div className="col-md-8 col-12">
-            <div className="card">
-              <Routes>
-                <Route path="/" element={<BlogHome />} />
-                <Route path="/:id" element={<Article />} />
-              </Routes>
-            </div>
+          <div className="col-md-8 col-12 mb-3">
+            <Routes>
+              <Route path="/" element={<BlogHome />} />
+              <Route path="/:id" element={<Article />} />
+            </Routes>
           </div>
-          <div className="col-md-4 d-none d-lg-block">
+          <div className="col-md-4 col-12">
             <NewArticles />
           </div>
         </div>

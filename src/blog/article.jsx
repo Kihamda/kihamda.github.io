@@ -1,6 +1,7 @@
 import parse from "html-react-parser";
 import { memo, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import Comment from "./comment";
 
 const Article = memo(() => {
   const locate = useLocation();
@@ -17,30 +18,33 @@ const Article = memo(() => {
 
   return (
     <>
-      <div className="card-body">
-        {contents ? (
-          <>
-            <h1>{contents.Title}</h1>
-            {parse(contents.Text)}
-          </>
-        ) : (
-          "Loading"
-        )}
+      <div className="card mb-3">
+        <div className="card-body">
+          {contents ? (
+            <>
+              <h1>{contents.Title}</h1>
+              {parse(contents.Text)}
+            </>
+          ) : (
+            "Loading"
+          )}
+        </div>
+        <div className="card-footer d-flex">
+          <span className="me-auto">
+            作成日時：
+            {contents ? new Date(contents._created * 1000).toDateString() : ""}
+          </span>
+          <span>共有：</span>
+          <a
+            href={`http://twitter.com/share?url=kihamda.github.io${locate.pathname}&text= - Kihamda&via=code_kihamda`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Twitter(旧X)
+          </a>
+        </div>
       </div>
-      <div className="card-footer d-flex">
-        <span className="me-auto">
-          作成日時：
-          {contents ? new Date(contents._created * 1000).toDateString() : ""}
-        </span>
-        <span>共有：</span>
-        <a
-          href={`http://twitter.com/share?url=kihamda.github.io${locate.pathname}&text= - Kihamda&via=code_kihamda`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Twitter(旧X)
-        </a>
-      </div>
+      <Comment id={id} />
     </>
   );
 });

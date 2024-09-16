@@ -1,7 +1,9 @@
 const BlogHome = () => {
   return (
-    <div className="card-body">
-      <p>BlogHome</p>
+    <div className="card">
+      <div className="card-body">
+        <p>BlogHome</p>
+      </div>
     </div>
   );
 };
