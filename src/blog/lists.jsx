@@ -12,7 +12,7 @@ const NewArticles = memo(() => {
       for (let i = 0; i < content.length; i++) {
         const element = content[i];
         body.push(
-          <li>
+          <li key={element._id}>
             <NavLink to={`/blog/${element._id}`}>{element.Title}</NavLink>
           </li>
         );

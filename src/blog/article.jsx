@@ -5,8 +5,11 @@ import Comment from "./comment";
 
 const Article = memo(() => {
   const locate = useLocation();
-  const id = locate.pathname.slice(6);
+  const [id, setId] = useState(locate.pathname.slice(6));
   const [contents, setContents] = useState();
+  useEffect(() => {
+    setId(locate.pathname.slice(6));
+  }, [locate]);
 
   useEffect(() => {
     (async () => {
