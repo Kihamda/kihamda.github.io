@@ -2,7 +2,7 @@ name: Staging Deploy
 
 on:                       # トリガーの設定
   push:                   # プッシュ時に実行
-    branches: [master]    # ブランチの指定
+    branches: [main]    # ブランチの指定
       
 jobs:
   FTP-Deploy-Action:
@@ -17,5 +17,5 @@ jobs:
               server: ${{ secrets.STAGING_SERVER }}       # FTPのサーバーアドレス
               username: ${{ secrets.STAGING_USERNAME }}   # FTPのユーザー名名
               password: ${{ secrets.STAGING_PASSWORD }}   # FTPのパスワード
-              local-dir: ./src/                           # アップロードしたいファイルのパス、この場合srcディレクトリ内をアップロード対象としている
-              server-dir: /public_html/project/stag/      # アップロード先のリモートパス
+              local-dir: ./docs/                          # アップロードしたいファイルのパス、この場合srcディレクトリ内をアップロード対象としている
+              server-dir: /kihamda.0t0.jp/public_html      # アップロード先のリモートパス
