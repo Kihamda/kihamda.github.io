@@ -18,4 +18,4 @@ jobs:
               username: ${{ secrets.PROD_USERNAME }}   # FTPのユーザー名名
               password: ${{ secrets.PROD_PASSWORD }}   # FTPのパスワード
               local-dir: ./docs/                          # アップロードしたいファイルのパス、この場合srcディレクトリ内をアップロード対象としている
-              server-dir: /kihamda.0t0.jp/public_html/      # アップロード先のリモートパス
+              server-dir: /public_html/      # アップロード先のリモートパス
