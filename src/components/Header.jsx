@@ -307,7 +307,7 @@ const Header = () => {
                 </a>
               </div>
               <div className="col-8 d-flex justify-content-center">
-                <p className="nav-item dropdown d-flex">
+                <div className="nav-item dropdown d-flex mb-3">
                   <button
                     className="btn btn-link nav-link dropdown-toggle d-flex align-items-center align-self-center"
                     id="bd-theme"
@@ -374,7 +374,7 @@ const Header = () => {
                       </button>
                     </li>
                   </ul>
-                </p>
+                </div>
               </div>
               <div className="col-2"></div>
             </div>
