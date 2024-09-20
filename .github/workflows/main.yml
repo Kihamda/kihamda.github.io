@@ -14,8 +14,8 @@ jobs:
         - name: FTP-Deploy-Action
           uses: SamKirkland/FTP-Deploy-Action@4.2.0     # FTPアップロードアクション（https://github.com/SamKirkland/FTP-Deploy-Action）
           with:
-              server: ${{ secrets.STAGING_SERVER }}       # FTPのサーバーアドレス
-              username: ${{ secrets.STAGING_USERNAME }}   # FTPのユーザー名名
-              password: ${{ secrets.STAGING_PASSWORD }}   # FTPのパスワード
+              server: ${{ secrets.PROD_SERVER }}       # FTPのサーバーアドレス
+              username: ${{ secrets.PROD_USERNAME }}   # FTPのユーザー名名
+              password: ${{ secrets.PROD_PASSWORD }}   # FTPのパスワード
               local-dir: ./docs/                          # アップロードしたいファイルのパス、この場合srcディレクトリ内をアップロード対象としている
               server-dir: /kihamda.0t0.jp/public_html      # アップロード先のリモートパス
