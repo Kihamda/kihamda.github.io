@@ -2,6 +2,9 @@ import parse from "html-react-parser";
 import { memo, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Comment from "./comment";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 const Article = memo(() => {
   const locate = useLocation();
@@ -31,8 +34,10 @@ const Article = memo(() => {
         </div>
         <div className="card-footer d-flex">
           <span className="me-auto">
-            作成日時：
-            {contents ? new Date(contents._created * 1000).toDateString() : ""}
+            <FontAwesomeIcon icon={faPenToSquare} />
+            {contents
+              ? " " + new Date(contents._created * 1000).toDateString()
+              : ""}
           </span>
           <span>共有：</span>
           <a
@@ -40,7 +45,7 @@ const Article = memo(() => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Twitter(旧X)
+            <FontAwesomeIcon icon={faXTwitter} />
           </a>
         </div>
       </div>
