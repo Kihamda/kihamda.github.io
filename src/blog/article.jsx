@@ -4,7 +4,13 @@ import { useLocation } from "react-router-dom";
 import Comment from "./comment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowsRotate,
+  faArrowUpFromBracket,
+  faPenToSquare,
+} from "@fortawesome/free-solid-svg-icons";
+
+import { faClipboard } from "@fortawesome/free-regular-svg-icons";
 
 const Article = memo(() => {
   const locate = useLocation();
@@ -36,20 +42,54 @@ const Article = memo(() => {
           )}
         </div>
         <div className="card-footer d-flex">
-          <span className="me-auto">
-            <FontAwesomeIcon icon={faPenToSquare} />
-            {contents
-              ? " " + new Date(contents._created * 1000).toDateString()
-              : ""}
+          <div className="d-flex me-auto flex-wrap">
+            <span className="me-3">
+              <FontAwesomeIcon icon={faPenToSquare} />
+              {contents
+                ? " " +
+                  new Date(contents._created * 1000)
+                    .toLocaleDateString("ja-JP", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                    })
+                    .replaceAll("-", "/")
+                : ""}
+            </span>
+            <span>
+              <FontAwesomeIcon icon={faArrowsRotate} />
+              {contents
+                ? " " +
+                  new Date(contents._modified * 1000)
+                    .toLocaleDateString("ja-JP", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                    })
+                    .replaceAll("-", "/")
+                : ""}
+            </span>
+          </div>
+
+          <span>
+            <FontAwesomeIcon icon={faArrowUpFromBracket} />：
           </span>
-          <span>共有：</span>
           <a
-            href={`http://twitter.com/share?url=kihamda.github.io${locate.pathname}&text= - Kihamda&via=code_kihamda`}
+            href={`http://x.com/share?url=kihamda.net${locate.pathname}&text= - Kihamda&via=code_kihamda`}
             target="_blank"
             rel="noopener noreferrer"
+            className="noAtag me-2"
           >
             <FontAwesomeIcon icon={faXTwitter} />
           </a>
+          <span
+            onClick={() => {
+              navigator.clipboard.writeText(`kihamda.net${locate.pathname}`);
+            }}
+            style={{ cursor: "pointer" }}
+          >
+            <FontAwesomeIcon icon={faClipboard} />
+          </span>
         </div>
       </div>
       <Comment id={id} />
