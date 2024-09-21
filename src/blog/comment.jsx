@@ -17,10 +17,10 @@ const Comment = memo(({ id }) => {
         const element = data[i];
         tmp.push(
           <div className="list-group-item" key={element._id}>
-            <h5>
-              {i + 1} {element.name}
+            <h5 className="mb-3">
+              {i + 1} : 「{element.name}」さん
             </h5>
-            <p>{element.body}</p>
+            <p style={{ whiteSpace: "pre" }}>{element.body}</p>
           </div>
         );
       }
