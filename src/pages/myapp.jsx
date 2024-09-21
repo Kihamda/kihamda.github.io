@@ -26,7 +26,12 @@ const Card = memo(({ data }) => {
           <h5 className="card-title">{data.title}</h5>
           <p className="card-text">{data.description}</p>
           <div className="d-grid justify-content-center">
-            <a href={data.url} className="btn btn-primary">
+            <a
+              href={data.url}
+              className="btn btn-primary"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               詳細
             </a>
           </div>

@@ -17,7 +17,11 @@ const Home = () => {
         <div className="d-flex text-center flex-column justify-content-center">
           <h3>KIHAMDA</h3>
           <p>Fullstack Developer/High School Student</p>
-          <p>This site is under construction</p>
+          <p>
+            趣味でゲーム開発やWeb技術の勉強をしています
+            <br />
+            詳しくは下のボタンから
+          </p>
           <div className="d-flex justify-content-center">
             <button
               className="btn btn-secondary me-1"

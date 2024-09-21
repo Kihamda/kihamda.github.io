@@ -2,7 +2,7 @@
 <html lang="ja" data-bs-theme="dark">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="My portrait website @ Kihamda" />
@@ -30,7 +30,24 @@
     </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <div class="d-grid align-content-center justify-content-center vh-100">
+        <div class="d-flex text-center flex-column justify-content-center">
+          <h3>JavaScript Unavaliable</h3>
+          <p>JavaScriptがご利用いただけない環境です</p>
+          <p>
+            このサイトの閲覧にはJavaScriptが必要です。<br />ご使用いただけない環境下の方は、<a
+              href="https://www.google.com/intl/ja_jp/chrome/"
+              >Google Chrome</a
+            >を検討してみてはいかがでしょうか
+          </p>
+
+          <div class="d-flex justify-content-center">
+            <a class="btn btn-secondary" href="/">RELOAD</a>
+          </div>
+        </div>
+      </div></noscript
+    >
     <div id="root"></div>
     <!--
       This HTML file is a template.
