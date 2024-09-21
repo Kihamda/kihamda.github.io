@@ -15,9 +15,7 @@ const Header = () => {
       return storedTheme;
     }
 
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+    return "auto";
   };
   const [theme, setTheme] = useState(getPreferredTheme());
 
@@ -237,9 +235,9 @@ const Header = () => {
                 >
                   <FontAwesomeIcon
                     icon={
-                      theme == "light"
+                      theme === "light"
                         ? faSun
-                        : theme == "dark"
+                        : theme === "dark"
                         ? faMoon
                         : faCircleHalfStroke
                     }
@@ -256,7 +254,7 @@ const Header = () => {
                     <button
                       type="button"
                       className={`dropdown-item d-flex align-items-center ${
-                        theme == "light" ? "active" : ""
+                        theme === "light" ? "active" : ""
                       }`}
                       onClick={() => setTheme("light")}
                     >
@@ -268,7 +266,7 @@ const Header = () => {
                     <button
                       type="button"
                       className={`dropdown-item d-flex align-items-center ${
-                        theme == "dark" ? "active" : ""
+                        theme === "dark" ? "active" : ""
                       }`}
                       data-bs-theme-value="dark"
                       onClick={() => setTheme("dark")}
@@ -281,7 +279,7 @@ const Header = () => {
                     <button
                       type="button"
                       className={`dropdown-item d-flex align-items-center ${
-                        theme == "auto" ? "active" : ""
+                        theme === "auto" ? "active" : ""
                       }`}
                       data-bs-theme-value="auto"
                       onClick={() => setTheme("auto")}
@@ -319,9 +317,9 @@ const Header = () => {
                   >
                     <FontAwesomeIcon
                       icon={
-                        theme == "light"
+                        theme === "light"
                           ? faSun
-                          : theme == "dark"
+                          : theme === "dark"
                           ? faMoon
                           : faCircleHalfStroke
                       }
@@ -339,7 +337,7 @@ const Header = () => {
                       <button
                         type="button"
                         className={`dropdown-item d-flex align-items-center ${
-                          theme == "light" ? "active" : ""
+                          theme === "light" ? "active" : ""
                         }`}
                         onClick={() => setTheme("light")}
                       >
@@ -351,7 +349,7 @@ const Header = () => {
                       <button
                         type="button"
                         className={`dropdown-item d-flex align-items-center ${
-                          theme == "dark" ? "active" : ""
+                          theme === "dark" ? "active" : ""
                         }`}
                         data-bs-theme-value="dark"
                         onClick={() => setTheme("dark")}
@@ -364,7 +362,7 @@ const Header = () => {
                       <button
                         type="button"
                         className={`dropdown-item d-flex align-items-center ${
-                          theme == "auto" ? "active" : ""
+                          theme === "auto" ? "active" : ""
                         }`}
                         data-bs-theme-value="auto"
                         onClick={() => setTheme("auto")}
