@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getLatestArticle } from "./components/latests";
+import { Link } from "react-router-dom";
 
 const AllArticles = () => {
   const [articles, setArticles] = useState([]);
@@ -11,7 +12,9 @@ const AllArticles = () => {
         const element = list[i];
         article.push(
           <tr key={element._id}>
-            <td>{element.Title}</td>
+            <td>
+              <Link to={`/blog/${element._id}`}> {element.Title}</Link>
+            </td>
             <td>
               {new Date(element._modified * 1000)
                 .toLocaleDateString("ja-JP", {
