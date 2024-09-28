@@ -1,13 +1,13 @@
 import { memo, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { getLatestArticle } from "./components/latests";
 
 const NewArticles = memo(() => {
   const [contents, setContents] = useState();
 
   useEffect(() => {
     (async () => {
-      // fetch data from API or local storage by id
-      const content = await getLatestArticle();
+      const content = await getLatestArticle(5);
       let body = [];
       for (let i = 0; i < content.length; i++) {
         const element = content[i];
@@ -16,8 +16,10 @@ const NewArticles = memo(() => {
             <NavLink to={`/blog/${element._id}`}>{element.Title}</NavLink>
           </li>
         );
+
+        setContents(body);
       }
-      setContents(body);
+      // fetch data from API or local storage by id
     })();
   }, []);
   return (
@@ -29,18 +31,5 @@ const NewArticles = memo(() => {
     </div>
   );
 });
-
-const getLatestArticle = async () => {
-  const url = process.env.REACT_APP_CMSURL;
-  const article = fetch(
-    url + `/content/items/Articles?limit=5&sort={_created:true}`
-  )
-    .then((data) => data.json())
-    .catch(() => {
-      return { Text: "<h1>Not Found</h1>" };
-    });
-  const txt = await article;
-  return txt;
-};
 
 export default NewArticles;
