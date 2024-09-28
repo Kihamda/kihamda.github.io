@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { Article } from "./article";
 import NewArticles from "./lists";
 import BlogHome from "./bloghome";
+import AllArticles from "./all";
 
 const Blog = () => {
   return (
@@ -12,6 +13,7 @@ const Blog = () => {
             <Routes>
               <Route path="/" element={<BlogHome />} />
               <Route path="/:id" element={<Article />} />
+              <Route path="/all" element={<AllArticles />} />
             </Routes>
           </div>
           <div className="col-md-4 col-12">

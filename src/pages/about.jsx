@@ -1,5 +1,6 @@
 import { memo, useEffect, useState } from "react";
 import parse from "html-react-parser";
+import { Helmet } from "react-helmet";
 
 const About = memo(() => {
   const [content, setContent] = useState([]);
@@ -33,7 +34,14 @@ const About = memo(() => {
       // cleanup
     };
   }, []);
-  return <div className="container">{content}</div>;
+  return (
+    <div className="container">
+      <Helmet>
+        <title>Kihamda - ABOUT</title>
+      </Helmet>
+      {content}
+    </div>
+  );
 });
 
 export default About;

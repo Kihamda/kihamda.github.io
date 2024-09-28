@@ -1,4 +1,5 @@
 import { memo, useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 const Myapp = memo(() => {
   const [content, setContent] = useState();
@@ -21,6 +22,9 @@ const Myapp = memo(() => {
 const Card = memo(({ data }) => {
   return (
     <div className="col-12 col-md-6 col-lg-4">
+      <Helmet>
+        <title>Kihamda - MYAPP</title>
+      </Helmet>
       <div className="card">
         <div className="card-body">
           <h5 className="card-title">{data.title}</h5>

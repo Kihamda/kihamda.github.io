@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faClipboard } from "@fortawesome/free-regular-svg-icons";
+import { Helmet } from "react-helmet";
 
 const Article = memo(() => {
   const locate = useLocation();
@@ -30,6 +31,15 @@ const Article = memo(() => {
 
   return (
     <>
+      <Helmet>
+        <title>{contents?.Title + " - Kihamda"}</title>
+        <meta property="og:title" content={contents?.Title} />
+        <meta property="og:description" content={contents?.Text} />
+        <meta
+          property="og:url"
+          content={`https://kihamda.github.io${locate.pathname}`}
+        />
+      </Helmet>
       <div className="card mb-3">
         <div className="card-body">
           {contents ? (

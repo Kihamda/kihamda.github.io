@@ -1,10 +1,14 @@
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   return (
     <div className="d-grid justify-content-center align-content-center vh-100">
+      <Helmet>
+        <title>Kihamda - CONTACT</title>
+      </Helmet>
       <div className="d-flex flex-column text-center">
         <h3>Contact</h3>
         <span className="d-flex justify-content-center noAtag">
