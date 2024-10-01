@@ -45,7 +45,20 @@ const Article = memo(() => {
           {contents ? (
             <>
               <h1>{contents.Title}</h1>
-              {parse(contents.Text)}
+              {parse(contents.Text, {
+                replace: (domNode) => {
+                  if (domNode.name === "img") {
+                    return (
+                      <img
+                        src={"https://cms.kihamda.net" + domNode.attribs.src}
+                        alt={domNode.attribs.alt}
+                        width="100%"
+                      />
+                    );
+                  }
+                  return domNode;
+                },
+              })}
             </>
           ) : (
             "Loading"
