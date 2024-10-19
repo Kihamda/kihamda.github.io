@@ -19,6 +19,17 @@ const Home = () => {
         }}
       >
         <div className="d-flex text-center flex-column justify-content-center">
+          <img
+            src="icon.webp"
+            alt="My Logo"
+            style={{
+              width: "50%",
+              height: "auto",
+              borderRadius: "20px",
+              filter: "drop-shadow(0 0 2px rgba(0, 0, 0, 0.5))",
+            }}
+            className="mb-3 align-self-center"
+          />
           <h3>KIHAMDA</h3>
           <p>Fullstack Developer/High School Student</p>
           <p>
